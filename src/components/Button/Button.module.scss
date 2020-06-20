@@ -1,0 +1,26 @@
+@import "src/assets/style/style.scss";
+
+.button {
+  padding: 18px 125px;
+  color: $primary_light;
+  font-size: $title;
+  font-weight: 600;
+  background: $primary;
+  border-radius: $border_radius;
+  border: none;
+  outline: none;
+  transition: $transition;
+  &:hover {
+    cursor: pointer;
+    background: lighten($primary, $amount_xs);
+  }
+}
+
+.disabled {
+  background: $secondary_light;
+  color: lighten($additional, $amount_xl);
+  &:hover {
+    cursor: not-allowed;
+    background: $secondary_light;
+  }
+}
