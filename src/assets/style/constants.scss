@@ -1,6 +1,6 @@
 // colors
-$primary_bg: #FFFFFF;
-$secondary_bg: #EFEFEF;
+$primary_light: #FFFFFF;
+$secondary_light: #EFEFEF;
 $primary: #FC4C4C;
 $secondary: #231E36;
 $additional: #625F6F;
@@ -9,3 +9,9 @@ $additional: #625F6F;
 $heading: 28px;
 $title: 18px;
 $body: 14px;
+
+// styling
+$border_radius: 14px;
+$transition: 0.3s ease-in-out;
+$amount_xs: 5;
+$amount_xl: 20;
