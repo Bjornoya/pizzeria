@@ -1,0 +1,15 @@
+@import "src/assets/style/style.scss";
+
+.navItem {
+  display: inline-block;
+  padding: 16px 24px;
+  font-size: $title;
+  color: $additional;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $transition;
+  &:hover {
+   color: $secondary;
+  }
+}
