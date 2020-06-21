@@ -1,0 +1,13 @@
+@import "src/assets/style/style.scss";
+
+.icon {
+  i {
+    padding: 5px;
+    border-radius: 50%;
+    transition: $transition;
+    &:hover {
+      cursor: pointer;
+      background: darken($primary_light, $amount_xs);
+    }
+  }
+}
