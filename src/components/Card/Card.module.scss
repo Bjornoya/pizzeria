@@ -1,0 +1,41 @@
+@import "src/assets/style/style.scss";
+
+.card {
+  display: inline-block;
+  width: 280px;
+  padding: 20px;
+  margin: 20px;
+  background: $primary_light;
+  text-align: center;
+  border: 1px solid $secondary_light;
+  border-radius: $border_radius;
+  box-shadow: $box_shadow;
+}
+
+.photo {
+  width: 80%;
+  margin: 0 0 20px 0;
+}
+
+.title {
+  font-size: $title;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $title;
+  color: $primary;
+  margin: 0 0 20px 0;
+  &Item {
+    padding: 5px;
+  }
+}
+
+.description {
+  font-size: $body;
+  margin: 0 0 25px 0;
+}
