@@ -1,0 +1,20 @@
+@import 'src/assets/style/style.scss';
+
+.input {
+  display: block;
+  width: 100%;
+  background: $secondary_light;
+  padding: 12px 24px;
+  border: 1px solid $secondary_light;
+  border-radius: $border_radius;
+  box-sizing: border-box;
+  outline: none;
+  transition: $transition;
+  font-size: $title;
+  &:hover {
+    border: 1px solid $additional;
+  }
+  &:focus {
+    border: 1px solid $secondary;
+  }
+}
