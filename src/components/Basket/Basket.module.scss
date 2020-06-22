@@ -1,0 +1,39 @@
+@import "src/assets/style/style.scss";
+
+.basket {
+  position: relative;
+  display: flex;
+  width: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  color: $secondary;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    color: lighten($primary, $amount_xs);
+  }
+  i {
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.count {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  padding: 1px 4px 1px 4px;
+  font-size: 10px;
+  font-weight: 600;
+  background: $secondary_light;
+  border-radius: 50%;
+}
+
+.total {
+  font-size: 12px;
+  font-weight: 600;
+}
