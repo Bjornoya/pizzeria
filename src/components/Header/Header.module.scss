@@ -1,8 +1,17 @@
 @import "src/assets/style/style.scss";
 
 .header {
+  background: $primary_light;
+  border-bottom: 1px solid $secondary_light;
+}
+
+.innerHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid $secondary_light;
+}
+
+.headerNav {
+  display: flex;
+  align-items: center;
 }

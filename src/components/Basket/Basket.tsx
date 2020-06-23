@@ -1,19 +1,20 @@
 import React from 'react';
-import Icon from '../Icon/Icon';
 import style from './Basket.module.scss';
+import Button from '../Button/Button';
 
 interface IBasketProps {
   count: string;
-  total: string;
 }
 
-const Basket = ({ count, total }: IBasketProps) => {
+const Basket = ({ count }: IBasketProps) => {
   return (
-    <div className={style.basket}>
-      <div className={style.count}>{count}</div>
-      <Icon icon="shopping_cart" />
-      <div className={style.total}>{total}</div>
-    </div>
+    <Button>
+      <div className={style.basket}>
+        <div className={style.text}>Basket</div>
+        <div className={style.line}>{''}</div>
+        <div className={style.total}>{count}</div>
+      </div>
+    </Button>
   );
 };
 
