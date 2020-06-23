@@ -14,13 +14,11 @@ const Card = ({ photo, title, price, description }: ICardProps) => {
     <div className={style.card}>
       <img className={style.photo} src={photo} alt={title} />
       <div className={style.title}>{title}</div>
-      <div className={style.price}>
-        <div className={style.priceItem}>{price}</div>
-        <div> /</div>
-        <div className={style.priceItem}>5$</div>
-      </div>
       <div className={style.description}>{description}</div>
-      <Button>Add to cart</Button>
+      <div className={style.footer}>
+        <div className={style.price}>{price}</div>
+        <Button>Add to cart</Button>
+      </div>
     </div>
   );
 };

@@ -4,12 +4,10 @@
   display: inline-block;
   width: 280px;
   padding: 20px;
-  margin: 20px;
+  margin: 30px 20px;
   background: $primary_light;
+  color: $secondary;
   text-align: center;
-  border: 1px solid $secondary_light;
-  border-radius: $border_radius;
-  box-shadow: $box_shadow;
 }
 
 .photo {
@@ -19,8 +17,9 @@
 
 .title {
   font-size: $title;
+  text-align: left;
   font-weight: 600;
-  margin: 0 0 15px 0;
+  margin: 0 0 15px 15px;
 }
 
 .price {
@@ -28,8 +27,7 @@
   justify-content: center;
   align-items: center;
   font-size: $title;
-  color: $primary;
-  margin: 0 0 20px 0;
+  font-weight: 600;
   &Item {
     padding: 5px;
   }
@@ -37,5 +35,13 @@
 
 .description {
   font-size: $body;
-  margin: 0 0 25px 0;
+  text-align: left;
+  margin: 0 0 25px 15px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 15px;
 }

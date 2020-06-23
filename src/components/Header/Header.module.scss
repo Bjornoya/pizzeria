@@ -1,8 +1,10 @@
 @import "src/assets/style/style.scss";
 
 .header {
+  position: fixed;
+  width: 100%;
   background: $primary_light;
-  border-bottom: 1px solid $secondary_light;
+  border-bottom: 2px solid $secondary_light;
 }
 
 .innerHeader {

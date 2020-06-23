@@ -23,3 +23,13 @@
   margin: 0 12px;
   background: rgb(255, 255, 255);
 }
+
+.icon {
+  i {
+    color: $primary_light;
+    :hover {
+      cursor: auto;
+      background: none;
+    }
+  }
+}
