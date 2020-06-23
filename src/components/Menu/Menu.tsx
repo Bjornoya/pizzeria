@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
-import style from './Menu.module.scss';
+import MainLayout from '../MainLayout/MainLayout';
 
 const data = [
   {
@@ -80,7 +80,7 @@ const data = [
 
 const Menu = () => {
   return (
-    <div className={style.menu}>
+    <MainLayout>
       <Container>
         {data.map((item) => (
           <Card
@@ -92,7 +92,7 @@ const Menu = () => {
           />
         ))}
       </Container>
-    </div>
+    </MainLayout>
   );
 };
 
