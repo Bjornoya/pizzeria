@@ -6,11 +6,12 @@ interface ITextAreaProps extends InputProps {
   rows: number;
 }
 
-const TextArea = ({ rows, name, value, onChange }: ITextAreaProps) => {
+const TextArea = ({ rows, name, value, placeholder, onChange }: ITextAreaProps) => {
   return (
     <textarea
       name={name}
       value={value}
+      placeholder={placeholder}
       className={style.textarea}
       rows={rows}
       autoComplete="off"

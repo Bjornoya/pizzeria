@@ -1,13 +1,15 @@
 @import 'src/assets/style/style.scss';
 
 .textarea {
-  padding: 6px 3px;
+  display: block;
+  width: 100%;
+  padding: 8px 6px;
+  font-size: 12px;
+  letter-spacing: 0.25px;
   border: 1px solid $secondary_light;
   box-sizing: border-box;
   border-radius: $border_radius;
   outline: none;
-  width: 100%;
-  display: block;
   transition: $transition;
   &:hover {
     border: 1px solid $additional;

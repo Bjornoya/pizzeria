@@ -3,14 +3,14 @@
 .input {
   display: block;
   width: 100%;
-  background: $secondary_light;
-  padding: 12px 24px;
+  padding: 8px 6px;
+  font-size: 12px;
+  letter-spacing: 0.25px;
   border: 1px solid $secondary_light;
   border-radius: $border_radius;
   box-sizing: border-box;
   outline: none;
   transition: $transition;
-  font-size: $title;
   &:hover {
     border: 1px solid $additional;
   }
