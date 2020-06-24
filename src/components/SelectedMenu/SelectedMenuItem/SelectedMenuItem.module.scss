@@ -1,0 +1,71 @@
+@import "src/assets/style/style.scss";
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-top: 1px solid $secondary_light;
+  border-bottom: 1px solid $secondary_light;
+}
+
+.image {
+  width: 64px;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+}
+
+.text {
+  margin: 0 0 0 15px;
+}
+
+.name {
+  color: $secondary;
+  font-size: $title;
+  font-weight: 600;
+}
+
+.size {
+  color: $secondary;
+  font-size: $body;
+}
+
+.buttons {
+  width: 140px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.plus {
+  padding: 0 2px;
+  font-weight: 600;
+}
+
+.minus {
+  font-weight: 600;
+}
+
+.count {
+  color: $secondary;
+  font-size: $title;
+  font-weight: 600;
+}
+
+.price {
+  padding: 0 10px 0 0;
+  font-size: $title;
+  color: $secondary;
+  font-weight: 600;
+}
+
+.actions {
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

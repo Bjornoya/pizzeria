@@ -4,6 +4,7 @@ import Form from '../../components/Form/Form';
 import MainLayout from '../../components/MainLayout/MainLayout';
 import Container from '../../components/Container/Container';
 import style from './Order.module.scss';
+import SelectedMenu from '../../components/SelectedMenu/SelectedMenu';
 
 const Order = () => {
   return (
@@ -16,7 +17,9 @@ const Order = () => {
             <div className={style.form}>
               <Form onSubmit={() => console.log('hey')} onChange={() => console.log('h1y')} />
             </div>
-            <div className={style.info}>Chosen Data...</div>
+            <div className={style.info}>
+              <SelectedMenu />
+            </div>
           </div>
         </Container>
       </MainLayout>
