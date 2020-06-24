@@ -15,7 +15,7 @@ const Order = () => {
           <div>Order page...</div>
           <div className={style.order}>
             <div className={style.form}>
-              <Form onSubmit={() => console.log('hey')} onChange={() => console.log('h1y')} />
+              <Form />
             </div>
             <div className={style.info}>
               <SelectedMenu />
