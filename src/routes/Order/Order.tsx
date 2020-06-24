@@ -13,11 +13,9 @@ const Order = () => {
         <Container>
           <div>Order page...</div>
           <div className={style.order}>
-            <Form
-              onSubmit={() => console.log('hey')}
-              onClick={() => console.log('hy')}
-              onChange={() => console.log('h1y')}
-            />
+            <div className={style.form}>
+              <Form onSubmit={() => console.log('hey')} onChange={() => console.log('h1y')} />
+            </div>
             <div className={style.info}>Chosen Data...</div>
           </div>
         </Container>
