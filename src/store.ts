@@ -5,7 +5,7 @@ export interface IData {
   title: string;
   price: string;
   description: string;
-  id?: string;
+  id: string;
 }
 
 interface IState {
@@ -105,7 +105,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { select: selectPost } = cartSlice.actions;
+export const { select: selectItem } = cartSlice.actions;
 
 const reducer = {
   cart: cartSlice.reducer,

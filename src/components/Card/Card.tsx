@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { selectItem } from '../../store';
 import style from './Card.module.scss';
 import Button from '../Button/Button';
 
@@ -7,10 +9,15 @@ export interface ICardProps {
   title: string;
   price: string;
   description: string;
-  id?: string;
+  id: string;
 }
 
 const Card = ({ photo, title, price, description, id }: ICardProps) => {
+  const dispatch = useDispatch();
+  const selectMenuItem = (id: string) => {
+    dispatch(selectItem(id));
+  };
+
   return (
     <div className={style.card}>
       <img className={style.photo} src={photo} alt={title} />
@@ -18,7 +25,7 @@ const Card = ({ photo, title, price, description, id }: ICardProps) => {
       <div className={style.description}>{description}</div>
       <div className={style.footer}>
         <div className={style.price}>{price}</div>
-        <Button>Add to cart</Button>
+        <Button onClick={() => selectMenuItem(id)}>Add to cart</Button>
       </div>
     </div>
   );
