@@ -1,24 +1,21 @@
 import React from 'react';
+import { ICardProps } from '../../Card/Card';
 import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
 import style from './SelectedMenuItem.module.scss';
 
-interface ISelectedMenuItemProps {
-  image: string;
-  name: string;
-  size: string;
+interface ISelectedMenuItemProps extends ICardProps {
   count: string;
-  price: string;
 }
 
-const SelectedMenuItem = ({ image, name, size, count, price }: ISelectedMenuItemProps) => {
+const SelectedMenuItem = ({ photo, title, description, count, price }: ISelectedMenuItemProps) => {
   return (
     <div className={style.item}>
       <div className={style.description}>
-        <img className={style.image} src={image} alt="Pizza" />
+        <img className={style.image} src={photo} alt="Pizza" />
         <div className={style.text}>
-          <div className={style.name}>{name}</div>
-          <div className={style.size}>{size}</div>
+          <div className={style.name}>{title}</div>
+          <div className={style.size}>{description}</div>
         </div>
       </div>
       <div className={style.buttons}>

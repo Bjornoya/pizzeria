@@ -1,43 +1,32 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getSelectedItemsData, getSelectedItems } from '../../utils/selectors';
+import { IData } from '../../store';
 import SelectedMenuItem from './SelectedMenuItem/SelectedMenuItem';
 import style from './SelectedMenu.module.scss';
 
-const data = [
-  {
-    image: 'https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg',
-    name: 'Carbonara',
-    size: 'Small, 25sm, traditional',
-    count: '0',
-    price: '4.47€',
-  },
-  {
-    image: 'https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg',
-    name: 'Carbonara',
-    size: 'Small, 25sm, traditional',
-    count: '0',
-    price: '4.47€',
-  },
-  {
-    image: 'https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg',
-    name: 'Carbonara',
-    size: 'Small, 25sm, traditional',
-    count: '0',
-    price: '4.47€',
-  },
-];
-
 const SelectedMenu = () => {
+  const data = useSelector(getSelectedItemsData);
+  const count = useSelector(getSelectedItems);
+
   return (
     <>
-      {data.map((item) => {
+      {data.map((item: IData) => {
+        // temporary solution
+        let calculatedData: any = {};
+        count.forEach((i: string) => {
+          calculatedData[i] = (calculatedData[item.id] || 0) + 1;
+        });
         return (
           <div className={style.itemWrapper}>
             <SelectedMenuItem
-              image={item.image}
-              name={item.name}
-              size={item.size}
-              count={item.count}
+              photo={item.photo}
+              title={item.title}
               price={item.price}
+              description={item.description}
+              id={item.id}
+              count={calculatedData[item.id]}
+              key={item.id}
             />
           </div>
         );
