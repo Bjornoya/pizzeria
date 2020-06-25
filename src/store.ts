@@ -102,10 +102,13 @@ const cartSlice = createSlice({
     select: (state: IState, { payload }: PayloadAction<string>) => {
       state.selectedItems.push(payload);
     },
+    remove: (state: IState, { payload }: PayloadAction<string>) => {
+      state.selectedItems = state.selectedItems.filter((item) => item !== payload);
+    },
   },
 });
 
-export const { select: selectItem } = cartSlice.actions;
+export const { select: selectItem, remove: removeItem } = cartSlice.actions;
 
 const reducer = {
   cart: cartSlice.reducer,

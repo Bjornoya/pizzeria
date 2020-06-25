@@ -6,9 +6,17 @@ import style from './SelectedMenuItem.module.scss';
 
 interface ISelectedMenuItemProps extends ICardProps {
   count: string;
+  onDelete: () => void;
 }
 
-const SelectedMenuItem = ({ photo, title, description, count, price }: ISelectedMenuItemProps) => {
+const SelectedMenuItem = ({
+  photo,
+  title,
+  description,
+  count,
+  price,
+  onDelete,
+}: ISelectedMenuItemProps) => {
   return (
     <div className={style.item}>
       <div className={style.description}>
@@ -29,7 +37,7 @@ const SelectedMenuItem = ({ photo, title, description, count, price }: ISelected
       </div>
       <div className={style.actions}>
         <div className={style.price}>{price}</div>
-        <Icon icon="delete" />
+        <Icon onClick={onDelete} icon="delete" />
       </div>
     </div>
   );

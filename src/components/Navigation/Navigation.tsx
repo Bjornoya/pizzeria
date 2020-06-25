@@ -3,10 +3,9 @@ import NavItem from './NavItem/NavItem';
 import style from './Navigation.module.scss';
 
 const data = [
-  { name: 'Napoletana', url: '/', key: 'pizza_ab' },
-  { name: 'alla Pala', url: '/', key: 'pizza_cd' },
-  { name: 'Tonda Romana', url: '/', key: 'pizza_ef' },
-  { name: 'al Taglio', url: '/', key: 'pizza_gh' },
+  { name: 'Pizza', url: '/', key: 'pizza_ab' },
+  { name: 'About Us', url: '/about', key: 'pizza_cd' },
+  { name: 'Orders History', url: '/history', key: 'pizza_cbgb' },
 ];
 
 const Navigation = () => {

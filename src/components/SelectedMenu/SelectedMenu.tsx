@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getSelectedItemsData, getSelectedItems } from '../../utils/selectors';
+import { removeItem } from '../../store';
 import { IData } from '../../store';
 import SelectedMenuItem from './SelectedMenuItem/SelectedMenuItem';
 import style from './SelectedMenu.module.scss';
@@ -8,6 +9,11 @@ import style from './SelectedMenu.module.scss';
 const SelectedMenu = () => {
   const data = useSelector(getSelectedItemsData);
   const count = useSelector(getSelectedItems);
+  const dispatch = useDispatch();
+
+  const onDelete = (id: string) => {
+    dispatch(removeItem(id));
+  };
 
   return (
     <>
@@ -26,6 +32,7 @@ const SelectedMenu = () => {
               description={item.description}
               id={item.id}
               count={calculatedData[item.id]}
+              onDelete={() => onDelete(item.id)}
               key={item.id}
             />
           </div>
