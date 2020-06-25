@@ -13,6 +13,7 @@ export interface ICardProps {
 }
 
 const Card = ({ photo, title, price, description, id }: ICardProps) => {
+  // Вынести логику на уровень выше в меню
   const dispatch = useDispatch();
   const selectMenuItem = (id: string) => {
     dispatch(selectItem(id));
@@ -21,11 +22,13 @@ const Card = ({ photo, title, price, description, id }: ICardProps) => {
   return (
     <div className={style.card}>
       <img className={style.photo} src={photo} alt={title} />
-      <div className={style.title}>{title}</div>
-      <div className={style.description}>{description}</div>
-      <div className={style.footer}>
-        <div className={style.price}>{price}</div>
-        <Button onClick={() => selectMenuItem(id)}>Add to cart</Button>
+      <div className={style.body}>
+        <div className={style.title}>{title}</div>
+        <div className={style.description}>{description}</div>
+        <div className={style.footer}>
+          <div className={style.price}>{price} €</div>
+          <Button onClick={() => selectMenuItem(id)}>Add to cart</Button>
+        </div>
       </div>
     </div>
   );

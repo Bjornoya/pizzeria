@@ -12,7 +12,6 @@ const Order = () => {
       <Header />
       <MainLayout>
         <Container>
-          <div>Order page...</div>
           <div className={style.order}>
             <div className={style.form}>
               <Form />

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ICardProps } from '../../Card/Card';
-import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
 import style from './SelectedMenuItem.module.scss';
 
@@ -27,16 +26,10 @@ const SelectedMenuItem = ({
         </div>
       </div>
       <div className={style.buttons}>
-        <Button>
-          <div className={style.plus}>+</div>
-        </Button>
         <div className={style.count}>{count}</div>
-        <Button>
-          <div className={style.minus}>—</div>
-        </Button>
       </div>
       <div className={style.actions}>
-        <div className={style.price}>{price}</div>
+        <div className={style.price}>{price} €</div>
         <Icon onClick={onDelete} icon="delete" />
       </div>
     </div>
