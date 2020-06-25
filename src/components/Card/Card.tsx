@@ -7,9 +7,10 @@ export interface ICardProps {
   title: string;
   price: string;
   description: string;
+  id?: string;
 }
 
-const Card = ({ photo, title, price, description }: ICardProps) => {
+const Card = ({ photo, title, price, description, id }: ICardProps) => {
   return (
     <div className={style.card}>
       <img className={style.photo} src={photo} alt={title} />
