@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getSelectedItems } from '../../utils/selectors';
 import Navigation from '../Navigation/Navigation';
 import Basket from '../Basket/Basket';
 import Container from '../Container/Container';
@@ -6,6 +8,8 @@ import Logo from '../Logo/Logo';
 import style from './Header.module.scss';
 
 const Header = () => {
+  const count = useSelector(getSelectedItems).length;
+
   return (
     <div className={style.header}>
       <Container>
@@ -15,7 +19,7 @@ const Header = () => {
             <Navigation />
           </div>
           <div>
-            <Basket count="0" />
+            <Basket count={count} />
           </div>
         </div>
       </Container>

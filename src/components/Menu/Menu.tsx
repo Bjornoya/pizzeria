@@ -8,7 +8,6 @@ import MainLayout from '../MainLayout/MainLayout';
 
 const Menu = () => {
   const data = useSelector(getPizzas);
-
   return (
     <MainLayout>
       <Container>
