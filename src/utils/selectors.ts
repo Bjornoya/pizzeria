@@ -16,6 +16,14 @@ export const getTotalCount = createSelector(getPizzas, (pizzas) =>
     .toFixed(2)
 );
 
+export const getTotalCountWithDelivery = createSelector(getTotalCount, (total) =>
+  (Number(total) + 5).toFixed(2)
+);
+
+export const getTotalCountUsd = createSelector(getTotalCountWithDelivery, (total) =>
+  (Number(total) * 1.12).toFixed(2)
+);
+
 export const getSelectedItemsData = createSelector(getPizzas, (pizzas) =>
   pizzas.filter((pizza: IData) => pizza.count > 0)
 );
