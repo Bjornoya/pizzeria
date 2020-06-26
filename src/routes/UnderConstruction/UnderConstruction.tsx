@@ -4,17 +4,17 @@ import MainLayout from '../../components/MainLayout/MainLayout';
 import Container from '../../components/Container/Container';
 import Error from '../../components/Empty/Error';
 
-const NotFound = () => {
+const UnderConstruction = () => {
   return (
     <>
       <Header />
       <MainLayout>
         <Container>
-          <Error>Page Not Found</Error>
+          <Error>Page Under Construction</Error>
         </Container>
       </MainLayout>
     </>
   );
 };
 
-export default NotFound;
+export default UnderConstruction;

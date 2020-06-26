@@ -4,6 +4,7 @@ import App from './App';
 import Home from './routes/Home/Home';
 import NotFound from './routes/NotFound/NotFound';
 import Order from './routes/Order/Order';
+import UnderConstruction from './routes/UnderConstruction/UnderConstruction';
 
 const Routes = () => {
   return (
@@ -11,6 +12,8 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/order" component={Order} />
+        <Route path="/about" component={UnderConstruction} />
+        <Route path="/history" component={UnderConstruction} />
         <Route component={NotFound} />
       </Switch>
     </App>

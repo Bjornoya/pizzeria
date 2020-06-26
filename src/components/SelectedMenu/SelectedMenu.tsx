@@ -49,7 +49,7 @@ const SelectedMenu = () => {
       </>
     );
   } else {
-    return <img className={style.empty} src={empty} alt="Empty cart" />;
+    return <img className={style.empty} src={empty} alt="Error cart" />;
   }
 };
 
