@@ -27,7 +27,7 @@ const SelectedMenu = () => {
         <div className={style.total}>
           Total: {total} € | {totalUsd} $
         </div>
-        {data.map((item: IData, index: number) => {
+        {data.map((item: IData) => {
           return (
             <div className={style.itemWrapper}>
               <SelectedMenuItem
@@ -39,7 +39,7 @@ const SelectedMenu = () => {
                 count={item.count}
                 onDelete={() => onDelete(dispatch, item.id)}
                 onAdd={() => onAdd(dispatch, item.id)}
-                onSubtract={() => onSubtract(dispatch, index)}
+                onSubtract={() => onSubtract(dispatch, item.id)}
                 key={item.id}
               />
             </div>

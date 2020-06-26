@@ -97,9 +97,6 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    select: (state: IState, { payload }: PayloadAction<string>) => {
-      state.selectedItems.push(payload);
-    },
     remove: (state: IState, { payload }: PayloadAction<string>) => {
       state.data.map((item) => {
         if (item.id === payload) {
@@ -118,22 +115,23 @@ const cartSlice = createSlice({
         }
       });
     },
-    subtract: (state: IState, { payload }: PayloadAction<number>) => {
-      if (state.data[payload].count > 0) {
-        state.data[payload].count -= 1;
-      } else {
-        state.data[payload].count = 0;
-      }
+    subtract: (state: IState, { payload }: PayloadAction<string>) => {
+      state.data.map((item) => {
+        if (item.id === payload) {
+          if (item.count > 0) {
+            return (item.count -= 1);
+          } else {
+            return (item.count = 0);
+          }
+        } else {
+          return item;
+        }
+      });
     },
   },
 });
 
-export const {
-  select: selectItem,
-  remove: removeItem,
-  add: addItem,
-  subtract: subtractItem,
-} = cartSlice.actions;
+export const { remove: removeItem, add: addItem, subtract: subtractItem } = cartSlice.actions;
 
 const reducer = {
   cart: cartSlice.reducer,

@@ -8,6 +8,6 @@ export const onDelete = (dispatch: any, id: string) => {
   dispatch(removeItem(id));
 };
 
-export const onSubtract = (dispatch: any, index: number) => {
-  dispatch(subtractItem(index));
+export const onSubtract = (dispatch: any, id: string) => {
+  dispatch(subtractItem(id));
 };
