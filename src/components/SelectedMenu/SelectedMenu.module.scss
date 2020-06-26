@@ -1,3 +1,18 @@
+@import "src/assets/style/style.scss";
+
 .itemWrapper {
   margin: 0 0 27px 0;
+}
+
+.total {
+  margin: 0 0 11px 0;
+  font-size: $sub_title;
+  font-weight: 600;
+  text-align: right;
+}
+
+.delivery {
+  font-size: $body;
+  font-weight: 600;
+  text-align: right;
 }

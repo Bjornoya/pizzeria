@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSelectedItemsData, getDeliveryPrice } from '../../utils/selectors';
+import { getSelectedItemsData, getDeliveryPrice, getTotalCount } from '../../utils/selectors';
 import { IData } from '../../store';
 import { onAdd, onDelete, onSubtract } from '../../utils/functions';
 import SelectedMenuItem from './SelectedMenuItem/SelectedMenuItem';
@@ -9,11 +9,12 @@ import style from './SelectedMenu.module.scss';
 const SelectedMenu = () => {
   const dispatch = useDispatch();
   const data = useSelector(getSelectedItemsData);
+  const total = useSelector(getTotalCount);
   const delivery = useSelector(getDeliveryPrice);
 
   return (
     <>
-      <div>Total: </div>
+      <div className={style.total}>Total: {total} €</div>
       {data.map((item: IData, index: number) => {
         return (
           <div className={style.itemWrapper}>
@@ -32,7 +33,7 @@ const SelectedMenu = () => {
           </div>
         );
       })}
-      <div>Delivery costs: {delivery} €</div>
+      <div className={style.delivery}>Delivery costs: {delivery} €</div>
     </>
   );
 };

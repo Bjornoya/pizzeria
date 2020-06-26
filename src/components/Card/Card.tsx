@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 export interface ICardProps {
   photo: string;
   title: string;
-  price: string;
+  price: number;
   description: string;
   id: string;
   onAdd: () => void;

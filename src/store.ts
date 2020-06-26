@@ -3,7 +3,7 @@ import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface IData {
   photo: string;
   title: string;
-  price: string;
+  price: number;
   count: number;
   description: string;
   id: string;
@@ -22,7 +22,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/698-300.jpg',
       title: 'Cheeseburger',
-      price: '4.29',
+      price: 4.29,
       count: 0,
       description:
         'Grilled sauce, mozzarella cheese, pickled cucumbers, pork, chicken breast, bacon',
@@ -31,7 +31,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/11-300.jpg',
       title: '4 Cheese',
-      price: '4.59',
+      price: 4.59,
       count: 0,
       description: 'Pizza sauce, mozzarella cheese, a mixture of cheeses',
       id: 'bb',
@@ -39,7 +39,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/1-300.jpg',
       title: 'Pepperoni light',
-      price: '2.29',
+      price: 2.29,
       count: 0,
       description: 'Pizza sauce, mozzarella cheese, pepperoni sausage, mushrooms',
       id: 'cc',
@@ -47,7 +47,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/16-300.jpg',
       title: 'Village',
-      price: '4.79',
+      price: 4.79,
       count: 0,
       description:
         'Pizza sauce, mozzarella cheese, garlic, red onion, champignons, pork, bacon, greens',
@@ -56,7 +56,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/17-300.jpg',
       title: 'Julietta',
-      price: '4.99',
+      price: 4.99,
       count: 0,
       description: 'Champignon mushrooms in a creamy sauce, mozzarella cheese, green',
       id: 'ee',
@@ -64,7 +64,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/593-300.jpg',
       title: 'Diablo',
-      price: '4.39',
+      price: 4.39,
       count: 0,
       description: 'Texas barbecue sauce, mozzarella cheese, red onion, salami sausage, ham',
       id: 'ff',
@@ -72,7 +72,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/629-300.jpg',
       title: 'Caesar',
-      price: '4.39',
+      price: 4.39,
       count: 0,
       description: 'Caesar sauce, mozzarella cheese, tomatoes, chicken breast, bacon',
       id: 'gg',
@@ -80,7 +80,7 @@ export const initialState: IState = {
     {
       photo: 'https://static.pizzasushiwok.ru/images/menu_new/649-300.jpg',
       title: 'Mexican',
-      price: '3.59',
+      price: 3.59,
       count: 0,
       description:
         'Tomato paste, spices, bell pepper, onions, minced beef, beans, mozzarella cheese',

@@ -5,10 +5,15 @@ export const getPizzas = (state: any) => state.cart.data;
 
 export const getDeliveryPrice = (state: any) => state.cart.delivery;
 
-export const getSelectedItems = (state: any) => state.cart.selectedItems;
-
 export const getItemsCount = createSelector(getPizzas, (pizzas) =>
   pizzas.map((item: IData) => item.count).reduce((prev: number, next: number) => prev + next)
+);
+
+export const getTotalCount = createSelector(getPizzas, (pizzas) =>
+  pizzas
+    .map((item: IData) => item.price * item.count)
+    .reduce((prev: number, next: number) => prev + next)
+    .toFixed(2)
 );
 
 export const getSelectedItemsData = createSelector(getPizzas, (pizzas) =>

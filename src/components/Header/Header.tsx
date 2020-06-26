@@ -9,7 +9,6 @@ import style from './Header.module.scss';
 
 const Header = () => {
   const count = useSelector(getItemsCount);
-  console.log(count);
 
   return (
     <div className={style.header}>
