@@ -14,7 +14,7 @@ const Button = ({ children, onClick, disabled }: IButtonProps) => {
   });
 
   return (
-    <button onClick={onClick} className={className}>
+    <button onClick={onClick} className={className} disabled={disabled}>
       {children}
     </button>
   );

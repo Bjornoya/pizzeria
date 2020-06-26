@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getItemsCount } from '../../utils/selectors';
 import { useForm } from 'react-hook-form';
 import style from './Form.module.scss';
 import Input from '../Input/Input';
@@ -6,6 +8,7 @@ import TextArea from '../TextArea/TextArea';
 import Button from '../Button/Button';
 
 const Form = () => {
+  const basketCount = useSelector(getItemsCount);
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data: any) => console.log(data);
 
@@ -78,8 +81,11 @@ const Form = () => {
           <TextArea rows={7} name="comment" placeholder="Comment" ref={register} />
         </div>
         <div className={style.footer}>
-          {/*TODO: if basket is empty, disable button. May be add info about * is required*/}
-          <Button children="Confirm order" />
+          {basketCount > 0 ? (
+            <Button children="Confirm order" />
+          ) : (
+            <Button children="Confirm order" disabled />
+          )}
         </div>
       </form>
     </div>
