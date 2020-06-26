@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { selectItem } from '../../store';
 import style from './Card.module.scss';
 import Button from '../Button/Button';
 
@@ -10,15 +8,10 @@ export interface ICardProps {
   price: string;
   description: string;
   id: string;
+  onAdd: () => void;
 }
 
-const Card = ({ photo, title, price, description, id }: ICardProps) => {
-  // Вынести логику на уровень выше в меню
-  const dispatch = useDispatch();
-  const selectMenuItem = (id: string) => {
-    dispatch(selectItem(id));
-  };
-
+const Card = ({ photo, title, price, description, onAdd }: ICardProps) => {
   return (
     <div className={style.card}>
       <img className={style.photo} src={photo} alt={title} />
@@ -27,7 +20,7 @@ const Card = ({ photo, title, price, description, id }: ICardProps) => {
         <div className={style.description}>{description}</div>
         <div className={style.footer}>
           <div className={style.price}>{price} €</div>
-          <Button onClick={() => selectMenuItem(id)}>Add to cart</Button>
+          <Button onClick={onAdd}>Add to cart</Button>
         </div>
       </div>
     </div>

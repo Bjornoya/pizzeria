@@ -2,10 +2,12 @@ import React from 'react';
 import { ICardProps } from '../../Card/Card';
 import Icon from '../../Icon/Icon';
 import style from './SelectedMenuItem.module.scss';
+import Button from '../../Button/Button';
 
 interface ISelectedMenuItemProps extends ICardProps {
-  count: string;
+  count: number;
   onDelete: () => void;
+  onSubtract: () => void;
 }
 
 const SelectedMenuItem = ({
@@ -15,6 +17,8 @@ const SelectedMenuItem = ({
   count,
   price,
   onDelete,
+  onAdd,
+  onSubtract,
 }: ISelectedMenuItemProps) => {
   return (
     <div className={style.item}>
@@ -26,7 +30,13 @@ const SelectedMenuItem = ({
         </div>
       </div>
       <div className={style.buttons}>
+        <Button onClick={onAdd}>
+          <div className={style.plus}>+</div>
+        </Button>
         <div className={style.count}>{count}</div>
+        <Button onClick={onSubtract}>
+          <div className={style.minus}>—</div>
+        </Button>
       </div>
       <div className={style.actions}>
         <div className={style.price}>{price} €</div>

@@ -1,28 +1,20 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getSelectedItemsData, getSelectedItems } from '../../utils/selectors';
-import { removeItem } from '../../store';
+import { getSelectedItemsData, getDeliveryPrice } from '../../utils/selectors';
 import { IData } from '../../store';
+import { onAdd, onDelete, onSubtract } from '../../utils/functions';
 import SelectedMenuItem from './SelectedMenuItem/SelectedMenuItem';
 import style from './SelectedMenu.module.scss';
 
 const SelectedMenu = () => {
-  const data = useSelector(getSelectedItemsData);
-  const count = useSelector(getSelectedItems);
   const dispatch = useDispatch();
-
-  const onDelete = (id: string) => {
-    dispatch(removeItem(id));
-  };
+  const data = useSelector(getSelectedItemsData);
+  const delivery = useSelector(getDeliveryPrice);
 
   return (
     <>
-      {data.map((item: IData) => {
-        // temporary solution
-        let calculatedData: any = {};
-        count.forEach((i: string) => {
-          calculatedData[i] = (calculatedData[item.id] || 0) + 1;
-        });
+      <div>Total: </div>
+      {data.map((item: IData, index: number) => {
         return (
           <div className={style.itemWrapper}>
             <SelectedMenuItem
@@ -31,13 +23,16 @@ const SelectedMenu = () => {
               price={item.price}
               description={item.description}
               id={item.id}
-              count={calculatedData[item.id]}
-              onDelete={() => onDelete(item.id)}
+              count={item.count}
+              onDelete={() => onDelete(dispatch, item.id)}
+              onAdd={() => onAdd(dispatch, item.id)}
+              onSubtract={() => onSubtract(dispatch, index)}
               key={item.id}
             />
           </div>
         );
       })}
+      <div>Delivery costs: {delivery} €</div>
     </>
   );
 };

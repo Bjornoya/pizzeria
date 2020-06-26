@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getSelectedItems } from '../../utils/selectors';
+import { getItemsCount } from '../../utils/selectors';
 import Navigation from '../Navigation/Navigation';
 import Basket from '../Basket/Basket';
 import Container from '../Container/Container';
@@ -8,7 +8,8 @@ import Logo from '../Logo/Logo';
 import style from './Header.module.scss';
 
 const Header = () => {
-  const count = useSelector(getSelectedItems).length;
+  const count = useSelector(getItemsCount);
+  console.log(count);
 
   return (
     <div className={style.header}>

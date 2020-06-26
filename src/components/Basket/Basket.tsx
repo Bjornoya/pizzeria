@@ -4,7 +4,7 @@ import style from './Basket.module.scss';
 import Button from '../Button/Button';
 
 interface IBasketProps {
-  count: string;
+  count: number;
 }
 
 const Basket = ({ count }: IBasketProps) => {
