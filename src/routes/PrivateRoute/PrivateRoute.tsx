@@ -1,16 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-
-const auth = {
-  isAuth: false,
-};
+import { getAuth } from '../../utils/selectors';
 
 const PrivateRoute = ({ component: Component, ...rest }: any) => {
+  const isAuth = useSelector(getAuth);
+
   return (
     <Route
       {...rest}
       render={(props) => {
-        if (auth.isAuth) {
+        if (isAuth) {
           return <Component {...props} />;
         } else {
           return <Redirect to={{ pathname: '/', state: { from: props.location } }} />;

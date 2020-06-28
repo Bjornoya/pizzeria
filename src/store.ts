@@ -18,6 +18,10 @@ interface IState {
   delivery: number;
 }
 
+interface IAuthState {
+  isAuth: boolean;
+}
+
 export const initialState: IState = {
   data: [
     {
@@ -33,6 +37,10 @@ export const initialState: IState = {
   error: null,
   selectedItems: [],
   delivery: 5,
+};
+
+export const authState: IAuthState = {
+  isAuth: false,
 };
 
 const cartSlice = createSlice({
@@ -85,6 +93,16 @@ const cartSlice = createSlice({
   },
 });
 
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: authState,
+  reducers: {
+    login: (state: IAuthState, { payload }: PayloadAction<boolean>) => {
+      state.isAuth = payload;
+    },
+  },
+});
+
 export const fetchPizzas = () => async (dispatch: Function) => {
   dispatch(request());
   let ref = fireDb.database().ref('/data');
@@ -107,8 +125,11 @@ export const {
   failure,
 } = cartSlice.actions;
 
+export const { login: loginFirebase } = authSlice.actions;
+
 const reducer = {
   cart: cartSlice.reducer,
+  auth: authSlice.reducer,
 };
 
 export const store = configureStore({

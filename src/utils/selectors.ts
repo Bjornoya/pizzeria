@@ -3,6 +3,8 @@ import { IData } from '../store';
 
 export const getPizzas = (state: any) => state.cart.data;
 
+export const getAuth = (state: any) => state.auth.isAuth;
+
 export const getDeliveryPrice = (state: any) => state.cart.delivery;
 
 export const getItemsCount = createSelector(getPizzas, (pizzas) =>
