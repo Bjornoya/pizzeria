@@ -24,3 +24,13 @@
     background: $secondary_light;
   }
 }
+
+.text {
+  background: $primary_light;
+  color: $additional;
+  font-weight: 600;
+  &:hover {
+    background: $primary_light;
+    color: $secondary;
+  }
+}

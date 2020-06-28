@@ -6,11 +6,13 @@ interface IButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
+  text?: boolean;
 }
 
-const Button = ({ children, onClick, disabled }: IButtonProps) => {
+const Button = ({ children, onClick, disabled, text }: IButtonProps) => {
   const className = clsx(style.button, {
     [style.disabled]: disabled,
+    [style.text]: text,
   });
 
   return (

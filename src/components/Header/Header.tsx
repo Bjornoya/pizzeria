@@ -6,6 +6,7 @@ import Basket from '../Basket/Basket';
 import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
 import style from './Header.module.scss';
+import Login from '../Login/Login';
 
 const Header = () => {
   const count = useSelector(getItemsCount);
@@ -18,7 +19,8 @@ const Header = () => {
             <Logo style={{ marginRight: '20px' }} />
             <Navigation />
           </div>
-          <div>
+          <div className={style.headerNav}>
+            <Login />
             <Basket count={count} />
           </div>
         </div>
