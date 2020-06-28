@@ -1,4 +1,5 @@
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import fireDb from './firebase';
 
 export interface IData {
   photo: string;
@@ -20,71 +21,12 @@ interface IState {
 export const initialState: IState = {
   data: [
     {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/698-300.jpg',
-      title: 'Cheeseburger',
-      price: 4.29,
+      photo: '',
+      title: '',
+      price: 0,
       count: 0,
-      description:
-        'Grilled sauce, mozzarella cheese, pickled cucumbers, pork, chicken breast, bacon',
-      id: 'aa',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/11-300.jpg',
-      title: '4 Cheese',
-      price: 4.59,
-      count: 0,
-      description: 'Pizza sauce, mozzarella cheese, a mixture of cheeses',
-      id: 'bb',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/1-300.jpg',
-      title: 'Pepperoni light',
-      price: 2.29,
-      count: 0,
-      description: 'Pizza sauce, mozzarella cheese, pepperoni sausage, mushrooms',
-      id: 'cc',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/16-300.jpg',
-      title: 'Village',
-      price: 4.79,
-      count: 0,
-      description:
-        'Pizza sauce, mozzarella cheese, garlic, red onion, champignons, pork, bacon, greens',
-      id: 'dd',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/17-300.jpg',
-      title: 'Julietta',
-      price: 4.99,
-      count: 0,
-      description: 'Champignon mushrooms in a creamy sauce, mozzarella cheese, green',
-      id: 'ee',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/593-300.jpg',
-      title: 'Diablo',
-      price: 4.39,
-      count: 0,
-      description: 'Texas barbecue sauce, mozzarella cheese, red onion, salami sausage, ham',
-      id: 'ff',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/629-300.jpg',
-      title: 'Caesar',
-      price: 4.39,
-      count: 0,
-      description: 'Caesar sauce, mozzarella cheese, tomatoes, chicken breast, bacon',
-      id: 'gg',
-    },
-    {
-      photo: 'https://static.pizzasushiwok.ru/images/menu_new/649-300.jpg',
-      title: 'Mexican',
-      price: 3.59,
-      count: 0,
-      description:
-        'Tomato paste, spices, bell pepper, onions, minced beef, beans, mozzarella cheese',
-      id: 'hh',
+      description: '',
+      id: '',
     },
   ],
   isLoading: false,
@@ -128,10 +70,42 @@ const cartSlice = createSlice({
         }
       });
     },
+    request: (state: IState) => {
+      state.isLoading = true;
+      state.error = null;
+    },
+    success: (state: IState, { payload }: PayloadAction<IData[]>) => {
+      state.data = payload;
+      state.isLoading = false;
+    },
+    failure: (state: IState, { payload }: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.error = payload;
+    },
   },
 });
 
-export const { remove: removeItem, add: addItem, subtract: subtractItem } = cartSlice.actions;
+export const fetchPizzas = () => async (dispatch: Function) => {
+  dispatch(request());
+  let ref = fireDb.database().ref('/data');
+  ref.on('value', (snapshot) => {
+    const state = snapshot.val();
+    if (state) {
+      dispatch(success(state));
+    } else {
+      dispatch(failure('Error'));
+    }
+  });
+};
+
+export const {
+  remove: removeItem,
+  add: addItem,
+  subtract: subtractItem,
+  request,
+  success,
+  failure,
+} = cartSlice.actions;
 
 const reducer = {
   cart: cartSlice.reducer,

@@ -12,6 +12,7 @@
     "@types/react-router-dom": "^5.1.5",
     "clsx": "^1.1.1",
     "fetch-mock": "^9.0.0-beta.2",
+    "firebase": "^7.15.5",
     "material-icons-react": "^1.0.4",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
