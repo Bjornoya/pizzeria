@@ -1,16 +1,23 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getItemsCount } from '../../utils/selectors';
 import { useForm } from 'react-hook-form';
-import style from './Form.module.scss';
+import { clearBasket } from '../../store';
 import Input from '../Input/Input';
 import TextArea from '../TextArea/TextArea';
 import Button from '../Button/Button';
+import style from './Form.module.scss';
 
-const Form = () => {
+const Form = ({ history }: { history: any }) => {
+  const dispatch = useDispatch();
   const basketCount = useSelector(getItemsCount);
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    console.log(data);
+    dispatch(clearBasket());
+    history.replace('/success');
+  };
 
   return (
     <div>
@@ -92,4 +99,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default withRouter(Form);

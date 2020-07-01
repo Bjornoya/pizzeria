@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPizzas } from '../../utils/selectors';
-import { IData, fetchPizzas } from '../../store';
+import { IData } from '../../store';
 import { onAdd } from '../../utils/functions';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
@@ -9,10 +9,6 @@ import MainLayout from '../MainLayout/MainLayout';
 
 const Menu = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPizzas());
-  }, [dispatch]);
 
   const data = useSelector(getPizzas);
   return (
