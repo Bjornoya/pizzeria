@@ -1,0 +1,22 @@
+@import "src/assets/style/style.scss";
+
+.table {
+  width: 100%;
+  margin: 100px 0;
+  th {
+    height: 60px;
+  }
+}
+
+.head {
+  font-size: $sub_title;
+  color: $primary;
+}
+
+.row {
+  text-align: center;
+  height: 40px;
+  font-size: $body;
+  color: $secondary;
+  font-weight: 600;
+}
