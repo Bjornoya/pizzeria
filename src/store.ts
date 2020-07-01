@@ -78,6 +78,9 @@ const cartSlice = createSlice({
         }
       });
     },
+    clear: (state: IState) => {
+      state.data.forEach((item) => (item.count = 0));
+    },
     request: (state: IState) => {
       state.isLoading = true;
       state.error = null;
@@ -123,6 +126,7 @@ export const {
   request,
   success,
   failure,
+  clear: clearBasket,
 } = cartSlice.actions;
 
 export const { login: loginFirebase } = authSlice.actions;
