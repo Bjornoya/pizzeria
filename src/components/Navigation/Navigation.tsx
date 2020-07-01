@@ -8,14 +8,28 @@ const data = [
   { name: 'Orders History', url: '/history', key: 'pizza_cbgb' },
 ];
 
-const Navigation = () => {
-  return (
+interface INavigationProps {
+  isAuth: boolean;
+}
+
+const Navigation = ({ isAuth }: INavigationProps) => {
+  return isAuth ? (
     <div className={style.navigation}>
       {data.map((item) => (
         <NavItem key={item.key} url={item.url}>
           {item.name}
         </NavItem>
       ))}
+    </div>
+  ) : (
+    <div className={style.navigation}>
+      {data
+        .filter((item) => item.url !== '/history')
+        .map((filteredItem) => (
+          <NavItem key={filteredItem.key} url={filteredItem.url}>
+            {filteredItem.name}
+          </NavItem>
+        ))}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Order from './routes/Order/Order';
 import UnderConstruction from './routes/UnderConstruction/UnderConstruction';
 import OrderHistory from './routes/OrderHistory/OrderHistory';
 import PrivateRoute from './routes/PrivateRoute/PrivateRoute';
+import LoginPage from './routes/Login/LoginPage';
 
 const Routes = () => {
   return (
@@ -15,6 +16,7 @@ const Routes = () => {
         <Route exact path="/" component={Home} />
         <Route path="/order" component={Order} />
         <Route path="/about" component={UnderConstruction} />
+        <Route path="/login" component={LoginPage} />
         <PrivateRoute path="/history" component={OrderHistory} />
         <Route component={NotFound} />
       </Switch>

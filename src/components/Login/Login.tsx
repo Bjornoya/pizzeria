@@ -3,11 +3,19 @@ import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
 import style from './Login.module.scss';
 
-const Login = () => {
+interface ILoginProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+  url: string;
+}
+
+const Login = ({ children, url, onClick }: ILoginProps) => {
   return (
     <div className={style.login}>
-      <NavLink to="login">
-        <Button text>Log In</Button>
+      <NavLink to={url}>
+        <Button onClick={onClick} text>
+          {children}
+        </Button>
       </NavLink>
     </div>
   );
