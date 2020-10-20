@@ -30,6 +30,9 @@
   color: $secondary;
   font-size: $title;
   font-weight: 600;
+  @media (max-width: 425px) {
+    word-break: break-word;
+  }
 }
 
 .size {

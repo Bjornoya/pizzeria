@@ -6,6 +6,7 @@ import { onAdd } from '../../utils/functions';
 import Card from '../Card/Card';
 import Container from '../Container/Container';
 import MainLayout from '../MainLayout/MainLayout';
+import style from './Menu.module.scss';
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,9 @@ const Menu = () => {
   return (
     <MainLayout>
       <Container>
-        {data.length > 1
-          ? data.map((item: IData) => (
+        <div className={style.menu}>
+          {data.length > 1
+            ? data.map((item: IData) => (
               <Card
                 photo={item.photo}
                 title={item.title}
@@ -26,7 +28,8 @@ const Menu = () => {
                 key={item.id}
               />
             ))
-          : null}
+            : null}
+        </div>
       </Container>
     </MainLayout>
   );

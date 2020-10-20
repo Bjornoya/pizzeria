@@ -1,4 +1,10 @@
 @import 'src/assets/style/style.scss';
 
 .menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 }
