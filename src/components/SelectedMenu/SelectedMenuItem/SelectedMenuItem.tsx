@@ -29,18 +29,20 @@ const SelectedMenuItem = ({
           <div className={style.size}>{description}</div>
         </div>
       </div>
-      <div className={style.buttons}>
-        <Button onClick={onAdd}>
-          <div className={style.plus}>+</div>
-        </Button>
-        <div className={style.count}>{count}</div>
-        <Button onClick={onSubtract}>
-          <div className={style.minus}>—</div>
-        </Button>
-      </div>
-      <div className={style.actions}>
-        <div className={style.price}>{price} €</div>
-        <Icon onClick={onDelete} icon="delete" />
+      <div className={style.actionsWrapper}>
+        <div className={style.buttons}>
+          <Button onClick={onAdd}>
+            <div className={style.plus}>+</div>
+          </Button>
+          <div className={style.count}>{count}</div>
+          <Button onClick={onSubtract}>
+            <div className={style.minus}>—</div>
+          </Button>
+        </div>
+        <div className={style.actions}>
+          <div className={style.price}>{price} €</div>
+          <Icon onClick={onDelete} icon="delete" />
+        </div>
       </div>
     </div>
   );
