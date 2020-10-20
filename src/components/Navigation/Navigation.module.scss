@@ -1,4 +1,10 @@
 @import "src/assets/style/style.scss";
 
 .navigation {
+  display: flex;
+  @media (max-width: 320px) {
+    a:last-child {
+      margin: 0;
+    }
+  }
 }
