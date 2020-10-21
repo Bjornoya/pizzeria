@@ -17,8 +17,14 @@
   top: 35px;
   font-size: 12px;
   color: $primary;
-
 }
+
+.formErr {
+  margin: 15px 0 0 0;
+  font-size: 12px;
+  color: $primary;
+}
+
 
 .form {
   display: flex;

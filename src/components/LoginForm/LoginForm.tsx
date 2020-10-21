@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import fireDb from '../../firebase';
@@ -10,10 +10,11 @@ const auth = fireDb.auth();
 
 const LoginForm = ({ history }: { history: any }) => {
   const { register, handleSubmit, errors } = useForm();
+  const [errLogin, setErrLogin] = useState('');
   const onSubmit = (data: any) => {
     const response = auth.signInWithEmailAndPassword(data.email, data.password);
-    response.catch((error) => console.log(error.message));
-    history.replace('/');
+    response.then(() => history.replace('/'));
+    response.catch((error) => setErrLogin(error.message));
   };
 
   return (
@@ -30,6 +31,7 @@ const LoginForm = ({ history }: { history: any }) => {
             },
             maxLength: { value: 26, message: 'Too long' },
           })}
+          onFocus={() => errLogin && setErrLogin('')}
         />
         {errors.email && <span className={style.err}>{errors.email.message}</span>}
       </div>
@@ -37,14 +39,17 @@ const LoginForm = ({ history }: { history: any }) => {
         <Input
           name="password"
           placeholder="Your password*"
+          type="password"
           ref={register({
             required: 'This field is required',
             maxLength: { value: 16, message: 'Too long' },
           })}
+          onFocus={() => errLogin && setErrLogin('')}
         />
         {errors.password && <span className={style.err}>{errors.password.message}</span>}
       </div>
       <Button children="Login" />
+      <span className={style.formErr}>{errLogin}</span>
     </form>
   );
 };
